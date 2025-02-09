@@ -12,8 +12,8 @@ export default defineConfig({
         enabled: true,
       },
       manifest: {
-        name: "Mikapo",
-        short_name: "Mikapo",
+        name: "3939hilton",
+        short_name: "3939mmd",
         description: "AI Pose Picker For MMD",
         theme_color: "#000000",
         start_url: "/",

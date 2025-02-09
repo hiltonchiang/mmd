@@ -1,14 +1,13 @@
 import { Avatar, IconButton } from "@mui/material"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
-import { Download } from "@mui/icons-material"
 
 function Header({ fps }: { fps: number }): JSX.Element {
   return (
     <header className="header">
       <div className="header-item" style={{ justifyContent: "flex-start" }}>
         <Avatar
-          alt="MiKaPo"
+          alt="3939mmd"
           src="/logo.png"
           sx={{
             width: 36,
@@ -20,25 +19,17 @@ function Header({ fps }: { fps: number }): JSX.Element {
             },
           }}
         />
-        <h2>MiKaPo</h2>
+        <h2>3939mmd</h2>
       </div>
 
       <div className="header-item">
         <p>FPS: {fps}</p>
       </div>
       <div className="header-item" style={{ justifyContent: "flex-end" }}>
-        <a href="https://github.com/AmyangXYZ/MiKaPo" target="_blank">
+        <a href="https://github.com/hiltonchiang/mmd" target="_blank">
           <IconButton>
             <FontAwesomeIcon icon={faGithub} color="white" size="sm" />
           </IconButton>
-        </a>
-        <a href="https://github.com/AmyangXYZ/MiKaPo-Electron" target="_blank">
-          <IconButton size="small" color="inherit">
-            <Download sx={{ color: "white", fontSize: "1.5rem", marginTop: ".2rem" }} />
-          </IconButton>
-        </a>
-        <a href="https://www.buymeacoffee.com/amyang" target="_blank">
-          <img src="/coffee.png" alt="Buy Me A Coffee" width={140} height={34} />
         </a>
       </div>
     </header>
