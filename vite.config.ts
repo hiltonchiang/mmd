@@ -16,7 +16,7 @@ export default defineConfig({
         short_name: "3939mmd",
         description: "AI Pose Picker For MMD",
         theme_color: "#000000",
-        start_url: "/",
+        start_url: "/mmd",
         display: "standalone",
         icons: [
           {
