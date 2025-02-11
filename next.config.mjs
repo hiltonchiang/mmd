@@ -3,7 +3,8 @@ const output = process.env.EXPORT ? 'export' : undefined
 const basePath = process.env.BASE_PATH || undefined
 
 const nextConfig = {
-  output: 'export',
+  output,
+  basePath,
   productionBrowserSourceMaps: true,
     }
 }
