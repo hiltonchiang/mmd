@@ -10,9 +10,10 @@ import Skeleton from "./Skeleton"
 import Background from "./Background"
 import { Drawer, IconButton } from "@mui/material"
 import { KeyboardBackspace } from "@mui/icons-material"
-import { Body } from "./index"
+import { Body } from "./Body"
 
-function App(): JSX.Element {
+
+function Home() {
   const [body, setBody] = useState<Body>({ mainBody: null, leftHand: null, rightHand: null, face: null })
 
   const [lerpFactor, setLerpFactor] = useState<number>(0.5)
@@ -39,11 +40,9 @@ function App(): JSX.Element {
       setMotionMounted(true)
     }
   }, [activeTab, motionMounted])
-
   return (
     <>
       <Header fps={fps}></Header>
-
       <MMDScene
         selectedModel={selectedModel}
         selectedBackground={selectedBackground}
@@ -111,4 +110,4 @@ function App(): JSX.Element {
   )
 }
 
-export default App
+export default Home

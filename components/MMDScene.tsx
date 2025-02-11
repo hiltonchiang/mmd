@@ -41,7 +41,7 @@ import "@babylonjs/core/Engines/shaderStore"
 import { Badge, BadgeProps, IconButton, styled, Tooltip } from "@mui/material"
 import { BorderAll, Camera, CenterFocusWeak, RadioButtonChecked, StopCircle } from "@mui/icons-material"
 import Encoding from "encoding-japanese"
-import { BoneFrame, MorphFrame, RecordedFrame, Body } from "."
+import { BoneFrame, MorphFrame, RecordedFrame, Body } from "./Body"
 
 import init, { PoseSolver, PoseSolverResult, Rotation } from "pose_solver"
 
@@ -379,7 +379,7 @@ function MMDScene({
       shadowGeneratorRef.current.transparencyShadow = true
 
       const backgroundMaterial = new BackgroundMaterial("backgroundMaterial", scene)
-      backgroundMaterial.diffuseTexture = new Texture(backgroundGroundUrl, scene)
+      backgroundMaterial.diffuseTexture = new Texture(backgroundGroundUrl.src, scene)
       backgroundMaterial.diffuseTexture.hasAlpha = true
       backgroundMaterial.opacityFresnel = false
       backgroundMaterial.shadowLevel = 0.4

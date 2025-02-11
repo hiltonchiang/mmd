@@ -1,3 +1,6 @@
+import { NormalizedLandmark } from "@mediapipe/tasks-vision"
+import { Quaternion, Vector3 } from "@babylonjs/core"
+
 export type Body = {
   mainBody: NormalizedLandmark[] | null
   leftHand: NormalizedLandmark[] | null

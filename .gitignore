@@ -23,7 +23,7 @@ dev-dist
 *.njsproj
 *.sln
 *.sw?
-
+out
 .vercel
-
+.next
 pose_solver/target

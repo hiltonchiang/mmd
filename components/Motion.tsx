@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useRef, useState } from "react"
 
 import { FilesetResolver, HolisticLandmarker } from "@mediapipe/tasks-vision"
@@ -5,7 +6,7 @@ import { IconButton, Tooltip } from "@mui/material"
 import { Videocam, CloudUpload, Stop } from "@mui/icons-material"
 import { styled } from "@mui/material/styles"
 import DebugScene from "./DebugScene"
-import { Body } from "./index"
+import { Body } from "./Body"
 const defaultVideoSrc = "./video/flash.mp4"
 
 const VisuallyHiddenInput = styled("input")({

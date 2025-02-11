@@ -2,7 +2,7 @@ import { Avatar, IconButton } from "@mui/material"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 
-function Header({ fps }: { fps: number }): JSX.Element {
+function Header({ fps }: { fps: number }) {
   return (
     <header className="header">
       <div className="header-item" style={{ justifyContent: "flex-start" }}>
