@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'exort',
+  output: 'export',
   productionBrowserSourceMaps: true,
   async headers() {
         return [
