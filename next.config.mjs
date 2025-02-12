@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const output = process.env.EXPORT ? 'export' : undefined
 const basePath = process.env.BASE_PATH || undefined
-const assetPrefix = process.env.ASSET_PREFIX ? process.env.ASSET_PREFIX.concat('/') : undefined
+const assetPrefix = process.env.BASE_PATH ? process.env.BASE_PATH.concat('/') : undefined
 const nextConfig = {
   output,
   basePath,
