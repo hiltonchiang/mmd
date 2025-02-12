@@ -13,7 +13,7 @@ import { KeyboardBackspace } from "@mui/icons-material"
 import { Body } from "./Body"
 
 
-function Home() {
+function Home( {basePath}:{basePath:string}  ) {
   const [body, setBody] = useState<Body>({ mainBody: null, leftHand: null, rightHand: null, face: null })
 
   const [lerpFactor, setLerpFactor] = useState<number>(0.5)
@@ -97,7 +97,7 @@ function Home() {
             animationDuration={animationDuration}
           ></Animation>
         )}
-        {activeTab === "model" && <Model setSelectedModel={setSelectedModel}></Model>}
+        {activeTab === "model" && <Model basePath={basePath} setSelectedModel={setSelectedModel}/>}
         {activeTab === "background" && (
           <Background
             selectedBackground={selectedBackground}

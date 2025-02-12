@@ -11,9 +11,7 @@ const availableModels = [
   "鸣潮-吟霖",
   "原神-荧",
 ]
-const basePath = process.env.BASE_PATH || ''
-
-function Model({ setSelectedModel }: { setSelectedModel: (model: string) => void }): JSX.Element {
+function Model({ setSelectedModel, basePath }: { setSelectedModel: (model: string) => void, basePath:string }): JSX.Element {
   return (
     <FormControl className="model">
       <RadioGroup
