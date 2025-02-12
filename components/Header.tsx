@@ -2,13 +2,14 @@ import { Avatar, IconButton } from "@mui/material"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 
-function Header({ fps }: { fps: number }) {
+function Header({ fps, basePath }: { fps: number, basePath: string }): JSX.Element {
   return (
+    <>
     <header className="header">
       <div className="header-item" style={{ justifyContent: "flex-start" }}>
         <Avatar
           alt="3939mmd"
-          src="/logo.png"
+          src={`${basePath}/logo.png`}
           sx={{
             width: 36,
             height: 36,
@@ -33,6 +34,7 @@ function Header({ fps }: { fps: number }) {
         </a>
       </div>
     </header>
+    </>
   )
 }
 

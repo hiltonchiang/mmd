@@ -11,6 +11,7 @@ function Animation({
   setSelectedAnimation,
   currentAnimationTime,
   setAnimationSeekTime,
+  basePath,
 }: {
   isPlaying: boolean
   setIsPlaying: (isPlaying: boolean) => void
@@ -18,6 +19,7 @@ function Animation({
   setSelectedAnimation: (animation: string) => void
   currentAnimationTime: number
   setAnimationSeekTime: (time: number) => void
+  basePath: string
 }): JSX.Element {
   const formatTime = (time: number) => {
     time = Math.round(time)
@@ -67,7 +69,7 @@ function Animation({
         aria-labelledby="demo-radio-buttons-group-label"
         defaultValue=""
         name="radio-buttons-group"
-        onChange={(_, value) => setSelectedAnimation(`/animation/${value}.vmd`)}
+        onChange={(_, value) => setSelectedAnimation(`${basePath}/animation/${value}.vmd`)}
         sx={{ display: "flex", margin: "auto" }}
       >
         {availableAnimations.map((animation) => (

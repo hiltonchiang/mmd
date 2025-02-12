@@ -168,6 +168,7 @@ function MMDScene({
   setCurrentAnimationTime,
   animationSeekTime,
   setAnimationDuration,
+  basePath,
 }: {
   body: Body
   lerpFactor: number
@@ -184,6 +185,7 @@ function MMDScene({
   setCurrentAnimationTime: (time: number) => void
   setAnimationDuration: (duration: number) => void
   animationSeekTime: number
+  basePath: string
 }): JSX.Element {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const sceneRef = useRef<Scene | null>(null)
@@ -427,7 +429,7 @@ function MMDScene({
         }
         domeRef.current = new PhotoDome(
           "testdome",
-          `/background/${selectedBackground}.jpeg`,
+          `${basePath}/background/${selectedBackground}.jpeg`,
           {
             resolution: 32,
             size: 500,
@@ -441,7 +443,7 @@ function MMDScene({
         }
       }
     }
-  }, [sceneRendered, sceneRef, selectedBackground])
+  }, [sceneRendered, sceneRef, selectedBackground, basePath])
 
   useEffect(() => {
     const loadMMD = async (): Promise<void> => {

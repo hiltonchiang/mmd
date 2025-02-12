@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
  
 const App = dynamic(() => import('@/components/Home'), { ssr: false })
  
-export function ClientOnly(basePath) {
-  return <App basePath={basePath}/>
+export function ClientOnly() {
+  return <App />
 }
 

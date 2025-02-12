@@ -12,8 +12,7 @@ import { Drawer, IconButton } from "@mui/material"
 import { KeyboardBackspace } from "@mui/icons-material"
 import { Body } from "./Body"
 
-
-function Home( {basePath}:{basePath:string}  ) {
+function Home() {
   const [body, setBody] = useState<Body>({ mainBody: null, leftHand: null, rightHand: null, face: null })
 
   const [lerpFactor, setLerpFactor] = useState<number>(0.5)
@@ -40,9 +39,16 @@ function Home( {basePath}:{basePath:string}  ) {
       setMotionMounted(true)
     }
   }, [activeTab, motionMounted])
+  const loc=window.location.pathname !== '/' ? window.location.pathname : ''
+  const [path, setPath] = useState<string>("")
+  useEffect(() => {
+    // You can now use the current URL
+    // ...
+    setPath(loc)
+  }, [path, setPath])
   return (
     <>
-      <Header fps={fps}></Header>
+      <Header fps={fps} basePath={path}/>
       <MMDScene
         selectedModel={selectedModel}
         selectedBackground={selectedBackground}
@@ -59,6 +65,7 @@ function Home( {basePath}:{basePath:string}  ) {
         animationSeekTime={animationSeekTime}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
+        basePath={path}
       ></MMDScene>
       <Drawer
         variant="persistent"
@@ -81,6 +88,7 @@ function Home( {basePath}:{basePath:string}  ) {
             setBody={setBody}
             setLerpFactor={setLerpFactor}
             style={{ display: activeTab === "motion" ? "block" : "none" }}
+            basePath={path}
           ></Motion>
         )}
         {activeTab === "material" && (
@@ -95,9 +103,10 @@ function Home( {basePath}:{basePath:string}  ) {
             currentAnimationTime={currentAnimationTime}
             setAnimationSeekTime={setAnimationSeekTime}
             animationDuration={animationDuration}
+            basePath={path}
           ></Animation>
         )}
-        {activeTab === "model" && <Model basePath={basePath} setSelectedModel={setSelectedModel}/>}
+        {activeTab === "model" && <Model setSelectedModel={setSelectedModel} basePath={path}/>}
         {activeTab === "background" && (
           <Background
             selectedBackground={selectedBackground}
