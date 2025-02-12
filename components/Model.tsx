@@ -11,6 +11,7 @@ const availableModels = [
   "鸣潮-吟霖",
   "原神-荧",
 ]
+const basePath = process.env.BASE_PATH || ''
 
 function Model({ setSelectedModel }: { setSelectedModel: (model: string) => void }): JSX.Element {
   return (
@@ -34,7 +35,7 @@ function Model({ setSelectedModel }: { setSelectedModel: (model: string) => void
             }
             label={
               <Box sx={{ display: "flex", alignItems: "center", marginBottom: 2 }}>
-                <Avatar src={`/avatar/${model}.png`} alt={model} sx={{ width: 64, height: 64, marginRight: 1 }} />
+                <Avatar src={`${basePath}/avatar/${model}.png`} alt={model} sx={{ width: 64, height: 64, marginRight: 1 }} />
                 <Typography sx={{ fontSize: ".9rem" }}>{model}</Typography>
               </Box>
             }
