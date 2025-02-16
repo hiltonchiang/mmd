@@ -41,17 +41,10 @@ function Home() {
       setMotionMounted(true)
     }
   }, [motionMounted])
-  const loc=window.location.pathname !== '/' ? window.location.pathname : ''
-  const [path, setPath] = useState<string>("")
-  useEffect(() => {
-    // You can now use the current URL
-    // ...
-    setPath(loc)
-  }, [path, setPath, loc])
  
   return (
     <>
-      <Header fps={fps} basePath={path}/>
+      <Header fps={fps}/>
       <MMDScene
         selectedModel={selectedModel}
         selectedBackground={selectedBackground}
@@ -68,7 +61,6 @@ function Home() {
         animationSeekTime={animationSeekTime}
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
-        basePath={path}
       ></MMDScene>
       <Drawer
         variant="persistent"
@@ -91,7 +83,6 @@ function Home() {
             setBody={setBody}
             setLerpFactor={setLerpFactor}
             style={{ display: activeTab === "motion" ? "block" : "none" }}
-            basePath={path}
           ></Motion>
         )}
         {activeTab === "material" && (
@@ -106,10 +97,9 @@ function Home() {
             currentAnimationTime={currentAnimationTime}
             setAnimationSeekTime={setAnimationSeekTime}
             animationDuration={animationDuration}
-            basePath={path}
           ></Animation>
         )}
-        {activeTab === "model" && <Model setSelectedModel={setSelectedModel} basePath={path}/>}
+        {activeTab === "model" && <Model setSelectedModel={setSelectedModel}/>}
         {activeTab === "background" && (
           <Background
             selectedBackground={selectedBackground}

@@ -1,4 +1,4 @@
-'use client'
+'ues client'
 import { useEffect, useRef, useState } from "react"
 
 import { FilesetResolver, HolisticLandmarker } from "@mediapipe/tasks-vision"
@@ -7,6 +7,7 @@ import { Videocam, CloudUpload, Stop } from "@mui/icons-material"
 import { styled } from "@mui/material/styles"
 import DebugScene from "./DebugScene"
 import { Body } from "./Body"
+import { basePath } from './ref'
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -25,13 +26,11 @@ function Video({
   setBody,
   setLerpFactor,
   style,
-  basePath,
 }: {
   body: Body
   setBody: (body: Body) => void
   setLerpFactor: (lerpFactor: number) => void
   style: React.CSSProperties
-  basePath: string
 }): JSX.Element {
   const defaultVideoSrc = basePath.concat("/video/flash.mp4")
   const videoRef = useRef<HTMLVideoElement>(null)

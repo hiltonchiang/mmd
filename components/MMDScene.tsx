@@ -45,7 +45,7 @@ import Encoding from "encoding-japanese"
 import { BoneFrame, MorphFrame, RecordedFrame, Body } from "./Body"
 
 import init, { PoseSolver, PoseSolverResult, Rotation } from "pose_solver"
-import {onToggleNav} from './ref'
+import {onToggleNav, basePath} from './ref'
 
 registerSceneLoaderPlugin(new PmxLoader())
 
@@ -170,7 +170,6 @@ function MMDScene({
   setCurrentAnimationTime,
   animationSeekTime,
   setAnimationDuration,
-  basePath,
 }: {
   body: Body
   lerpFactor: number
@@ -187,7 +186,6 @@ function MMDScene({
   setCurrentAnimationTime: (time: number) => void
   setAnimationDuration: (duration: number) => void
   animationSeekTime: number
-  basePath: string
 }): JSX.Element {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const sceneRef = useRef<Scene | null>(null)
@@ -445,7 +443,7 @@ function MMDScene({
         }
       }
     }
-  }, [sceneRendered, sceneRef, selectedBackground, basePath])
+  }, [sceneRendered, sceneRef, selectedBackground])
 
   useEffect(() => {
     const loadMMD = async (): Promise<void> => {
@@ -493,7 +491,7 @@ function MMDScene({
     const loadAnimation = async (): Promise<void> => {
       const vmd = await new VmdLoader(sceneRef.current!).loadAsync("vmd", selectedAnimation)
       const audio = await new StreamAudioPlayer(sceneRef.current)
-      audio.source = "/music/little-apple.mp3"
+      audio.source = `${basePath}/music/little-apple.mp3`
       mmdRuntimeRef.current!.setAudioPlayer(audio)
       const animation = new MmdWasmAnimation(vmd, mmdWasmInstanceRef.current!, sceneRef.current!)
       mmdModelRef.current?.addAnimation(animation)
@@ -526,6 +524,9 @@ function MMDScene({
       if (!mmdModel || !body || !body.mainBody || !poseSolverRef.current) {
         return
       }
+     // const msg = "body.mainBody.length = " + body.mainBody.length.toString() + ","+body.mainBody[0].x.toString()
+      
+      //alert(msg)
 
       const result: PoseSolverResult = poseSolverRef.current.solve(
         body.mainBody,

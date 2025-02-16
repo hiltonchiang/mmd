@@ -1,6 +1,7 @@
 import { Pause, PlayArrow, FileUpload } from "@mui/icons-material"
 import { Button, FormControl, FormControlLabel, IconButton, Radio, RadioGroup, Slider, Typography } from "@mui/material"
 import { useMemo, useRef } from "react"
+import { basePath } from './ref'
 
 const availableAnimations = ["Stand", "Zyy", "Miku", "iKun1", "Man", "0-540"]
 
@@ -11,7 +12,6 @@ function Animation({
   setSelectedAnimation,
   currentAnimationTime,
   setAnimationSeekTime,
-  basePath,
 }: {
   isPlaying: boolean
   setIsPlaying: (isPlaying: boolean) => void
@@ -19,7 +19,6 @@ function Animation({
   setSelectedAnimation: (animation: string) => void
   currentAnimationTime: number
   setAnimationSeekTime: (time: number) => void
-  basePath: string
 }): JSX.Element {
   const formatTime = (time: number) => {
     time = Math.round(time)

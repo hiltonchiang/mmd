@@ -1,7 +1,8 @@
 import { Avatar, IconButton } from "@mui/material"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
-function Header({ fps, basePath }: { fps: number, basePath: string }): JSX.Element {
+import { basePath } from './ref'
+function Header({ fps }: { fps: number }): JSX.Element {
   return (
     <div className="header">
       <div className="header-item lg-screen" style={{ justifyContent: "flex-start" }}>

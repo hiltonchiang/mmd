@@ -1,6 +1,6 @@
 import { FormControl, FormControlLabel, Radio, RadioGroup, Avatar, Typography } from "@mui/material"
 import { Box } from "@mui/system"
-
+import { basePath } from './ref'
 const availableModels = [
   "深空之眼-托特",
   "深空之眼-托特2",
@@ -11,7 +11,7 @@ const availableModels = [
   "鸣潮-吟霖",
   "原神-荧",
 ]
-function Model({ setSelectedModel, basePath }: { setSelectedModel: (model: string) => void, basePath:string }): JSX.Element {
+function Model({ setSelectedModel }: { setSelectedModel: (model: string) => void}): JSX.Element {
   return (
     <FormControl className="model">
       <RadioGroup

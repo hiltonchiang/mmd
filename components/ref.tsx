@@ -13,7 +13,7 @@ export const onToggleNav = () => {
     navShow=!navShow
 }
 
-export let activeTab:string=""
+export let activeTab:string="motion"
 
 export function setActiveTab(tab:string) {
     activeTab=tab
@@ -24,3 +24,5 @@ export let openDrawer=false
 export function setOpenDrawer(st) {
     openDrawer = st
 }
+
+export const basePath = window.location.pathname !== '/' ? window.location.pathname : ''
