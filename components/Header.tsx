@@ -1,12 +1,10 @@
 import { Avatar, IconButton } from "@mui/material"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
-
 function Header({ fps, basePath }: { fps: number, basePath: string }): JSX.Element {
   return (
-    <>
-    <header className="header">
-      <div className="header-item" style={{ justifyContent: "flex-start" }}>
+    <div className="header">
+      <div className="header-item lg-screen" style={{ justifyContent: "flex-start" }}>
         <Avatar
           alt="3939mmd"
           src={`${basePath}/logo.png`}
@@ -20,21 +18,19 @@ function Header({ fps, basePath }: { fps: number, basePath: string }): JSX.Eleme
             },
           }}
         />
-        <h2>3939mmd</h2>
       </div>
 
-      <div className="header-item">
+      <div className="header-item lg-screen">
         <p>FPS: {fps}</p>
       </div>
-      <div className="header-item" style={{ justifyContent: "flex-end" }}>
+      <div className="header-item lg-screen" style={{ justifyContent: "flex-end" }}>
         <a href="https://github.com/hiltonchiang/mmd" target="_blank">
           <IconButton>
             <FontAwesomeIcon icon={faGithub} color="white" size="sm" />
           </IconButton>
         </a>
       </div>
-    </header>
-    </>
+    </div>
   )
 }
 

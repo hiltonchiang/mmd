@@ -11,14 +11,16 @@ import Background from "./Background"
 import { Drawer, IconButton } from "@mui/material"
 import { KeyboardBackspace } from "@mui/icons-material"
 import { Body } from "./Body"
+import MobileNav from "./MobileNav"
+import {activeTab, setActiveTab, openDrawer, setOpenDrawer} from './ref'
 
 function Home() {
   const [body, setBody] = useState<Body>({ mainBody: null, leftHand: null, rightHand: null, face: null })
 
   const [lerpFactor, setLerpFactor] = useState<number>(0.5)
   const [fps, setFps] = useState<number>(0)
-  const [openDrawer, setOpenDrawer] = useState<boolean>(false)
-  const [activeTab, setActiveTab] = useState<string>("")
+  // const [openDrawer, setOpenDrawer] = useState<boolean>(false)
+  // const [activeTab, setActiveTab] = useState<string>("")
 
   const [selectedModel, setSelectedModel] = useState<string>("深空之眼-托特")
   const [selectedBackground, setSelectedBackground] = useState<string>("Static")
@@ -38,14 +40,15 @@ function Home() {
     if (activeTab === "motion" && !motionMounted) {
       setMotionMounted(true)
     }
-  }, [activeTab, motionMounted])
+  }, [motionMounted])
   const loc=window.location.pathname !== '/' ? window.location.pathname : ''
   const [path, setPath] = useState<string>("")
   useEffect(() => {
     // You can now use the current URL
     // ...
     setPath(loc)
-  }, [path, setPath])
+  }, [path, setPath, loc])
+ 
   return (
     <>
       <Header fps={fps} basePath={path}/>
@@ -114,6 +117,9 @@ function Home() {
           ></Background>
         )}
       </Drawer>
+      <div className="flex">
+        <MobileNav />
+      </div>
       <Footer setOpenDrawer={setOpenDrawer} setActiveTab={setActiveTab}></Footer>
     </>
   )

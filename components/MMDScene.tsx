@@ -39,11 +39,12 @@ import type { IMmdRuntimeLinkedBone } from "babylon-mmd/esm/Runtime/IMmdRuntimeL
 
 import "@babylonjs/core/Engines/shaderStore"
 import { Badge, BadgeProps, IconButton, styled, Tooltip } from "@mui/material"
-import { BorderAll, Camera, CenterFocusWeak, RadioButtonChecked, StopCircle } from "@mui/icons-material"
+import { BorderAll, Camera, CenterFocusWeak, RadioButtonChecked, StopCircle, Menu} from "@mui/icons-material"
 import Encoding from "encoding-japanese"
 import { BoneFrame, MorphFrame, RecordedFrame, Body } from "./Body"
 
 import init, { PoseSolver, PoseSolverResult, Rotation } from "pose_solver"
+import {onToggleNav} from './ref'
 
 registerSceneLoaderPlugin(new PmxLoader())
 
@@ -876,6 +877,16 @@ function MMDScene({
           </IconButton>
         </Tooltip>
       )}
+      <div className="sm:hidden">
+      <Tooltip title="MENU">
+        <IconButton
+          style={{ position: "absolute", top: "16rem", right: ".5rem", color: "#f209f5" }}
+          onClick={onToggleNav}
+        >
+          <Menu sx={{ width: "26px", height: "26px" }} />
+        </IconButton>
+      </Tooltip>
+      </div>
     </>
   )
 }

@@ -49,7 +49,7 @@ function Footer({
   }, [updateZhiyin])
 
   return (
-    <div className="footer">
+    <div className="footer lg-screen">
       <Tooltip title="Motion capture" placement="left-start">
         <div
           style={{
