@@ -33,6 +33,7 @@ import {
   PmxLoader,
   SdefInjector,
   VmdLoader,
+  StreamAudioPlayer,
 } from "babylon-mmd"
 import backgroundGroundUrl from "./assets/backgroundGround.png"
 import type { IMmdRuntimeLinkedBone } from "babylon-mmd/esm/Runtime/IMmdRuntimeLinkedBone"
@@ -491,6 +492,9 @@ function MMDScene({
 
     const loadAnimation = async (): Promise<void> => {
       const vmd = await new VmdLoader(sceneRef.current!).loadAsync("vmd", selectedAnimation)
+      const audio = await new StreamAudioPlayer(sceneRef.current)
+      audio.source = "/music/little-apple.mp3"
+      mmdRuntimeRef.current!.setAudioPlayer(audio)
       const animation = new MmdWasmAnimation(vmd, mmdWasmInstanceRef.current!, sceneRef.current!)
       mmdModelRef.current?.addAnimation(animation)
       mmdModelRef.current?.setAnimation("vmd")
